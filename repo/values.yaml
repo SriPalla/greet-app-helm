@@ -9,7 +9,7 @@ image:
   pullPolicy: IfNotPresent
 service:
   name: greet-app-service
-  type: ClusterIP
+  type: NodePort
   externalPort: 80
   internalPort: 8080
 ingress:
