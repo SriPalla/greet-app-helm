@@ -8,10 +8,6 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  ipFamilyPolicy: PreferDualStack
-  ipFamilies:
-  - IPv6
-  - IPv4
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.externalPort }}
