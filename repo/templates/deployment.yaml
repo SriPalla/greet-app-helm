@@ -27,7 +27,7 @@ spec:
 #                name: app-prop-config
           env:
               {{- range .Values.localEnv }}
-            - name: {{ .name }}
+            - name: {{ .name |upper | replace "." "_" }}
               value: {{ .value }}
            {{- end }}
           ports:
