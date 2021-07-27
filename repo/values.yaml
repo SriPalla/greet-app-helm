@@ -38,3 +38,11 @@ resources: {}
   #  memory: 128Mi
 fullname: myapp-greet
 name: greet-app
+
+localEnv:
+  - name: valuefile.database.url
+    value: jdbc:postgresql:/dev:5432/instance
+  - name: valuefile.database.username
+    value: dev
+  - name: valuefile.database.password
+    value: devsecret
