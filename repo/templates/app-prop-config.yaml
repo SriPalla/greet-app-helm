@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: app-prop-config
+  name: pp-prop-config
 data:
-  properties: {{ range .Files.Lines "config/application.properties" }}
-    {{ . }}{{ end }}
+  {{- (.Files.Glob "config/*").AsConfig | nindent 2 }}
