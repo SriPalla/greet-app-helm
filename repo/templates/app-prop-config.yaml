@@ -3,6 +3,4 @@ kind: ConfigMap
 metadata:
   name: app-prop-config
 data:
-{{ range $path, $bytes := .Files.Glob "config/*" }}
-  {{- $.Files.Get $path | indent 2 | upper | replace "." "_" | replace " = " ": " }}
-{{- end }}
+  {{- tpl ((.Files.Glob "config/*.properties").AsConfig) . | nindent 2 }}
