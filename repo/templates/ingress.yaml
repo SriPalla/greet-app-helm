@@ -4,9 +4,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ template "greet-app-chart.fullname" . }}
+  name: {{ .Values.fullname }}
   labels:
-    app: {{ template "greet-app-chart.name" . }}
+    app: {{ .Values.name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
