@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-prop-config
 data:
-  {{ range $path, $_ :=  .Files.Glob  "**/config/**.properties" }}
-      {{ $.Files.Get $path }}
-{{ end }}
+  properties: {{ range .Files.Lines "config/application.properties" }}
+    {{ . }}{{ end }}
