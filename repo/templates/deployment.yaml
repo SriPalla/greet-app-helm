@@ -22,9 +22,14 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          envFrom:
-            - configMapRef:
-                name: app-prop-config
+#          envFrom:
+#            - configMapRef:
+#                name: app-prop-config
+          env:
+              {{- range .Values.localEnv }}
+            - name: {{ .name }}
+              value: {{ .value }}
+           {{- end }}
           ports:
             - containerPort: {{ .Values.service.internalPort }}
           livenessProbe:
