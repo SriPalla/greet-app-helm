@@ -46,3 +46,7 @@ localEnv:
     value: dev
   - name: valuefile.database.password
     value: devsecret
+
+env:
+  required:
+    properties: application-dev.properties

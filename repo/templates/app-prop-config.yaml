@@ -3,4 +3,9 @@ kind: ConfigMap
 metadata:
   name: app-prop-config
 data:
-  {{- tpl ((.Files.Glob "config/*.properties").AsConfig) . | nindent 2 }}
+  {{ range .Files.Lines "config"/.Values.env.required.properties }}
+    {{- if ne . "" -}}
+    {{- $parts := splitn "=" 2 . -}} # details about split function http://masterminds.github.io/sprig/string_slice.html
+    {{ $parts._0 }}: {{ $parts._1 | quote }}
+    {{end}}
+  {{ end }}
