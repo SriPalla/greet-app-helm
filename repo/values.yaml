@@ -1,6 +1,7 @@
 # Default values for greet-app-chart.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+nameOverride: greet-app
 replicaCount: 1
 image:
   repository: sri3012kanth/greet-app
